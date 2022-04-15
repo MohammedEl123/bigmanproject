@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="container-sm">
+    <h1>All bigmans</h1>
+
+    <% for (let bigman of bigmans){%>
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-3">
+                <%if(bigman.images.length) {%>
+                <img class="img-fluid" alt="" src="<%=bigman.images[0].url%>">
+                <% }else {%>
+                <img class="img-fluid" alt=""
+                    src=https://res.cloudinary.com/ddffwnpbq/image/upload/v1649540794/bigmans/76be8127e5009504ad4416204c91a851--stylish-plus-plus-size-men-fashion-outfits_wl1qlc.jpg">
+                <% } %>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= bigman.title %> </h5>
+
+                    <p class="card-text"><%= bigman.description %></p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= bigman.category%></small>
+                    </p>
+                    <a class="btn btn-primary" href="/bigmans/<%=bigman._id%>">View <%=bigman.title%></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }%>
+</div>
